@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+  <!--LogLevel 日志等级：Error，Info，Debug-->
+<!--LogPath:日志打印存放位置-->
+<!--RetentionTime:日志所保留的天数-->
+<LogConfigSettings>
+  <add key="LogLevel" value="Info" />
+  <add key="LogPath" value="C:\Users\19877_000\Desktop\HDIS\Log/"/>
+  <add key="RetentionTime" value="30" />
+</LogConfigSettings>

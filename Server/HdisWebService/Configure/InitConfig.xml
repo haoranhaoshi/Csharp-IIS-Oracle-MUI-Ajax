@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="GB2312"?>
+<Config>
+<ConnectionString>Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.31.90) (PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=orcl)));Persist Security Info=True;User Id=hdis; Password=hdis</ConnectionString>
+<VersionNumber>1.0</VersionNumber>
+</Config>
