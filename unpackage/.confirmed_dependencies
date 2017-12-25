@@ -1,0 +1,129 @@
+{
+  "index.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/bootstrap.min.css",
+      "imgs/nurse.png",
+      "login.html",
+      "imgs/4ýE-.png",
+      "imgs/4ýE-.png",
+      "fonts/mui-icons-extra.ttf",
+      "css/icons-extra.css",
+      "js/jquery-1.9.1.min.js",
+      "js/bootstrap.min.js",
+      "js/mytry.js",
+      "css/mytry.css",
+      "js/Patient.js",
+      "js/jquery-1.8b1.js",
+      "css/index.css",
+      "js/index.js",
+      "js/QueryDialysisPatientListByDate.js",
+      "js/UpMachine.js",
+      "js/UpOrCancelUpMachine.js",
+      "js/DownOrCancelDownMachine.js",
+      "js/QueryAreaList.js",
+      "js/AreaList.js",
+      "js/DialysisPatientList.js",
+      "js/ClassList.js",
+      "js/DialysisInfo.js",
+      "js/IndexInit.js",
+      "js/DialysisItem.js",
+      "js/UnExecuteOrder.js",
+      "js/PatientClick.js",
+      "js/ChangeBed.js",
+      "js/VersionCheck.js",
+      "js/LoadXml.js",
+      "js/BaseInfo.js",
+      "js/DialysisSummary.js",
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js",
+      "js/NurseRoleSave.js"
+    ],
+    "refer": [
+      "offcanvas-drag-right-plus-menu.html",
+      "login.html",
+      "scan.html"
+    ]
+  },
+  "login.html": {
+    "resources": [
+      "index.html",
+      "js/mui.min.js",
+      "imgs/icon.png",
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "css/app.css",
+      "css/icons-extra.css",
+      "fonts/mui-icons-extra.ttf",
+      "scan.html",
+      "js/LoginMain.js",
+      "config.json",
+      "js/Login.js",
+      "js/LoadXml.js"
+    ],
+    "refer": [
+      "index.html",
+      "scan.html",
+      "popovers.html"
+    ]
+  },
+  "scan.html": {
+    "resources": [
+      "login.html",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/scan.js"
+    ],
+    "refer": [
+      "login.html",
+      "index.html"
+    ]
+  },
+  "popovers.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "input.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "fonts/mui-icons-extra.ttf",
+      "css/mytry.css",
+      "css/icons-extra.css",
+      "js/mytry.js"
+    ],
+    "refer": []
+  },
+  "offcanvas-drag-right.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "offcanvas-drag-right-plus-main.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "offcanvas-drag-right-plus-menu.html"
+    ]
+  },
+  "changeBedTry.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  }
+}

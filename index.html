@@ -1,0 +1,392 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/icons-extra.css" rel="stylesheet" type="text/css" />
+		<link href="css/index.css" rel="stylesheet" type="text/css" />
+	</head>
+
+	<body id="body">
+
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
+			<!--侧滑-->
+			<aside id="offCanvasSide" class="mui-off-canvas-left" style="width: 388px;height:100%;position: absolute;background-color: #5EBAFE;">
+				<div id="ring"></div>
+				<p style="margin-top: 18px;font-size: 28px;color: white;">某某护士</p>
+				<div style="margin-top: 26px;margin-bottom:94px;margin-left: 28px;margin-right: 28px;height: 4px;background-color: white;"></div>
+				<a id="exit" style="font-size: 24px;color: white;">退出登录</a>
+				<div id="versionDiv" style="margin-top: 32px;font-size: 24px;color: white;">
+					<div style="margin-left:calc((388px - 142px) / 2);float: left;align-content: center;">
+						版本号：
+						<font id="versionNumber"></font>&nbsp;&nbsp;
+					</div>
+					<div id="alertRedCircle" style="float: left;background-color: #F53530;height: 18px;width: 18px;border-radius: 9px;visibility: hidden;"></div>
+				</div>
+			</aside>
+			<!--主页-->
+			<div class="mui-inner-wrap" style="background-color: #f6f7f9;height: 100%;">
+				<!--第一横栏-->
+				<div id="title1">
+					<div id="left">
+						<a href="#offCanvasSide" id="moveIcon" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
+						<p id="patient">
+							患者列表
+							<font id="patientCount"></font>
+						</p>
+					</div>
+					<div id="middle">
+						<!--<div id="dateControl" class="mui-segmented-control">
+							<a class="mui-control-item mui-active" href="#page1" style="text-decoration: none;vertical-align: middle;">今天</a>
+							<a id="date" class="mui-control-item" href="#page2" style="text-decoration: none;vertical-align: middle;">选择时间</a>
+						</div>-->
+						<div style="margin-top:13px;">
+							<span style="font-size: 22px;">
+								日期选择
+							</span>
+							<span id="lastDay" class="mui-icon mui-icon-arrowleft"></span>
+							<span id="date">2017/7/3</span>
+							<span id="nextDay" class="mui-icon mui-icon-arrowright"></span>
+							<span id="dateSelect" class="mui-icon-extra mui-icon-extra-calendar"></span>
+						</div>
+					</div>
+					<div id="right">
+
+					</div>
+				</div>
+				<!--第二横栏-->
+				<div id="title2">
+					<div id="left">
+						<span class='mui-icon mui-icon-arrowthinleft' id="returnIcon"></span>
+						<div class="searchPart">
+							<span id="searchIcon" class="mui-icon mui-icon-search"></span>
+							<div class="mui-input-row" id="searchDiv">
+								<input type="text" class="mui-input-clear" id="search" onfocus="mySearch(this)" placeholder="请输入姓名/透析号">
+							</div>
+							<a id="scanIcon" class="mui-icon-extra mui-icon-extra-sweep"></a>
+						</div>
+					</div>
+					<div id="middle" style="padding-left: 12px;padding-right: 12px;width: calc(100%/3 * 2);" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+						<a id="tab1" class="mui-control-item mui-active" href="#hd">透析信息</a>
+						<a id="tab2" class="mui-control-item" href="#process">过程记录</a>
+						<a id="tab3" class="mui-control-item" href="#advice">医嘱记录</a>
+						<a id="tab4" class="mui-control-item" href="#after">透后记录</a>
+						<!--<a id="tab5" class="mui-control-item" href="">处置管理</a>-->
+					</div>
+
+				</div>
+				<!--患者列表-->
+				<div id="list">
+					<!--列表表头-->
+					<div style="height: 46px;width: 100%;padding-top: 4px;border-bottom: #D9D9D9 solid 1px;">
+						<div style="height: 38px;width: calc(100%/3);float:left;border-right: darkgray solid thin;padding-top: 10px;font-size: 18px;">
+							<a href="#stateSelect" id="state">已签到</a>
+						</div>
+						<div style="height: 38px;width: calc(100%/3);float:left;border-right: darkgray solid thin;padding-top: 10px;font-size: 18px;">
+							<a href="#classSelect" id="class">所有班</a>
+						</div>
+						<div style="height: 38px;width: calc(100%/3);float:left;padding-top: 10px;font-size: 18px;">
+							<a href="#areaSelect" id="area">所有区</a>
+						</div>
+					</div>
+					<!--列表主体-->
+					<div style="position: absolute;top: 46px;width: 100%;height: calc(100% - 46px - 4px) ;">
+						<div id="wrapperPatientList" class="mui-scroll-wrapper" style="height: 100%;">
+
+							<div id="scrollPatientList" class="mui-scroll" style="height: 100%;">
+								<div id="listRefresh" style="display: none;color: #5EBAFE;font-size: 18px;height: 30px;padding-top: 5px;">
+									正在刷新...
+								</div>
+								<ul class="mui-table-view" id="patientList">
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--患者信息-->
+				<div id="information">
+					<!--透析信息-->
+					<div id="hd" class="mui-control-content mui-active" style="height: calc(100% - 58px - 58px - 12px);margin-right: 40px;">
+						<div class="mui-scroll-wrapper" style="height: 100%;">
+							<div class="mui-scroll" style="height: calc((22px + 15px + 40px * 4 + 15px) + (20px + 22px + 15px + 40px * 16 + 15px));">
+								<div style="width:100%;height: calc(20px + 22px + 15px + 40px * 4 + 15px);padding-top: 20px;border-bottom: #d9d9d9 thin solid;">
+									<div style="height: 22px;width:14px;position: absolute;left:0px;background-color: #5EBAFE;"></div>
+									<div id="basicInformation">
+										<p>基本信息</p>
+										<div>
+										</div>
+										<div>
+										</div>
+									</div>
+								</div>
+								<div style="width:100%;height: calc(20px + 22px + 15px + 40px * 16 + 15px);padding-top: 20px;">
+									<div style="height: 22px;width:14px;position: absolute;background-color: #5EBAFE;"></div>
+									<div id="dialysisBeforeInfo">
+										<p>透前信息</p>
+										<div>
+										</div>
+										<div>
+										</div>
+									</div>
+								</div>
+								<!--<div style="width:100%;padding-top: 20px;height: calc(20px + 22px + 15px + 40px + 15px);">
+									<div style="height: 22px;width:14px;position: absolute;background-color: #5EBAFE;"></div>
+									<div id="dialysisAfterInfo">
+										<p>透后信息</p>
+										<div>
+										</div>
+										<div>
+										</div>
+									</div>
+								</div>-->
+							</div>
+						</div>
+					</div>
+					<!--过程记录-->
+					<div id="process" class="mui-control-content" style="height: calc(100% - 58px - 58px - 12px);margin-right: 40px;">
+						<div id="processAlert" style="width:100%;line-height: 40px;border-bottom: 1px #DDDDDD solid;font-size: 20px;">超滤总量： ml，治疗时长： h，血流量： ml/min</div>
+						<div id="scrollProcess" class="mui-scroll-wrapper" style="height: 100%;margin-top: 40px;">
+							<div id="processContent" class="mui-scroll" style="height: 100%;">								
+								<button id="addButton" class="mui-btn mui-btn-primary">增加</button>
+							</div>
+						</div>
+					</div>
+					<!--医嘱记录-->
+					<div id="advice" class="mui-control-content" style="height: calc(100% - 58px - 58px - 12px);">
+						<div class="mui-scroll-wrapper" style="height: 100%;">
+							<!--<button class="mui-btn mui-btn-primary executeButton">执行</button>-->
+							<div id="executeContent" class="mui-scroll" style="height: 100%;">
+								<!--时间点记录-->
+								<!--<div style="width:100%;height: 421px;margin-top: 20px;">
+									<div style="height: 22px;width:14px;position: absolute;left:0px;background-color: #5EBAFE;"></div>
+									<div style="left: calc(14px + 18px);right:0px;position: absolute;">
+										<p style="float:left;font-size: 20px;color: #a8a8a8;text-align: left;">上午 8:00</p>
+										<div id="batchExecute">
+											<a href="#executePopover">
+												<span style="font-size: 30px;padding-right: 0px;margin-left: 0px;" class="mui-icon mui-icon-compose"></span>
+												<span style="font-size: 18px;color: #a8a8a8;">批量执行</span>
+											</a>
+										</div>
+									</div>
+									<div style="position:absolute;height:370px;padding-top:0px;margin-top:28px;left: 96px;right:0px;border-left-color: #5EBAFE;border-left-style:solid;border-left-width: 4px;">
+										<div style="float:left;text-align:left;line-height:40px;font-size:22px;margin-top: 10px;margin-left: 58px;width: 100%;">
+											医嘱<br>
+											<font style="padding-left: 2em;font-size:22px"></font>
+											<font style="color: #5EBAFE;font-size: 20px;">名称：阴式B超， 规格：， 每次量：1， <br><font style="padding-left: 2em;font-size:22px"></font>频次：SDF， 用法：， 数量：2， 类型：检查， <br><font style="padding-left: 2em;font-size:22px"></font>开立医生：管理员， 开立时间：2017/8/4 10:00:17</font>
+											<br>确认护士<span style="margin-left: calc(34%);">super</span>
+											<br>状态&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="margin-left: calc(34%);"><font style="color: red;">已确认</font></span>
+										</div>
+										<button class="mui-btn mui-btn-primary executeButton">执行</button>
+									</div>
+									<div class="circle" style="position: absolute;margin-top: 398px;left: 88px;"></div>
+									<div style="position: absolute;margin-top: 408px;left: 154px;width:718px;height:1px;padding:0px;background-color:#d9d9d9;overflow:hidden;"></div>
+								</div>-->
+								<!--时间点记录-->
+								<!--<div class="executeOrder">
+									<div class="rectangle"></div>
+									<div class="time">
+										<p></p>
+									</div>
+									<div class="orderContent">
+										<div class="orderText">
+											医嘱<br>
+											<font style="padding-left: 2em;font-size:22px"></font>
+											<font style="color: #5EBAFE;font-size: 20px;">名称：阴式B超， 规格：， 每次量：1， <br><font style="padding-left: 2em;font-size:22px"></font>频次：SDF， 用法：， 数量：2， 类型：检查， <br><font style="padding-left: 2em;font-size:22px"></font>开立医生：管理员， 开立时间：2017/8/4 10:00:17</font>
+											<br>确认护士<span style="margin-left: calc(34%);">super</span>
+											<br>状态<font style="padding-left: 2em;font-size:22px"></font><span style="margin-left: calc(34%);"><font style="color: red;">已确认</font></span>
+										</div>
+										<button class="mui-btn mui-btn-primary executeButton">执行</button>
+									</div>
+									<div class="circleOrder"></div>
+									<div class="lineOrder"></div>
+								</div>-->
+							</div>
+						</div>
+					</div>
+					<!--透后记录-->
+					<div id="after" class="mui-control-content" style="height: calc(100% - 58px - 58px - 12px);margin-right: 40px;">
+						<div id="afterAlert" style="width:100%;line-height: 40px;border-bottom: 1px #DDDDDD solid;font-size: 20px;">超滤总量： ml，治疗时长： h</div>
+						<div class="mui-scroll-wrapper" style="height: 100%;margin-top: 40px;">
+							<div class="mui-scroll" style="height: 740px;">
+								<div class="afterRecord">									
+									<div class="afterItem">
+										穿刺护士：<select id="punctureNurse" style="margin: 0px;font-size: 20px;display: inline;width:100px;height: 40px;background-color: transparent;">
+										<select><br>
+										治疗护士：									
+										<select id="treatmentNurse" style="margin: 0px;font-size: 20px;display: inline;width:100px;height: 40px;background-color: transparent;">						
+										<select><br>
+										实际治疗时间：<input type='number' onfocus='' onblur='factTimeBlur(this)' placeholder='' style="width: 70px;background-color: transparent;">H<br> 实际超滤总量：
+										<input type='number' onfocus='' onblur='' placeholder='' style="width: 70px;background-color: transparent;">ml<br> 透后体重：
+										<input type='number' onfocus='' onblur='getLessWeight(this)' placeholder='' style="width: 70px;">kg<br> 体重下降：
+										<label id="lessWeight" style="width: 70px;"></label>kg<br> 体温：
+										<input type='number' id="Temper" onfocus='' placeholder='' style="width: 70px;">℃<br> 脉搏：
+										<input type='number' onfocus='' onblur='' placeholder='' style="width: 70px;">次/分<br> 心率：
+										<input type='number' onfocus='' onblur='' placeholder='' style="width: 70px;">次/分<br>呼吸：
+										<input type='number' onfocus='' onblur='' placeholder='' style="width: 70px;">次/分<br>
+										 血压：<input type='number' onfocus='' onblur='' placeholder='' style="width: 70px;">/ <input type='number' onfocus='' onblur='' placeholder='' style="width: 70px;">mmHg<br> 小结: <textarea id="summaryText" rows="3" cols="20"></textarea>
+									</div>
+								</div>
+								<div class="afterCircle">
+
+								</div>
+								<div class="afterLine">
+
+								</div>
+								<button id="afterSaveButton" class="mui-btn mui-btn-primary">保存</button>															
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="stateSelect" class="mui-popover">
+			<div class="mui-popover-arrow"></div>
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view" id="stateList">
+						<li class="mui-table-view-cell">
+							已签到
+						</li>
+						<li class="mui-table-view-cell">
+							未签到
+						</li>
+						<li class="mui-table-view-cell">
+							全部
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="classSelect" class="mui-popover">
+			<div class="mui-popover-arrow"></div>
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view" id="classList">
+						<li class="mui-table-view-cell">
+							所有班
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="areaSelect" class="mui-popover">
+			<div class="mui-popover-arrow"></div>
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view" id="areaList">
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="executePopover" class="mui-popover" style="background-color: rgba(0,0,0,0);height:100%;width: 0px;">
+			<div class="mui-popup mui-popup-in" style="display: block;">
+				<div class="mui-popup-inner">
+					<div class="mui-popup-title">批量执行</div>
+					<div class="mui-input-row mui-checkbox mui-left" style="width: calc(100%/2);font-size: 18px;">
+						<label>全选</label>
+						<input name="checkbox" value="全选" type="checkbox" id="allChoose">
+					</div>
+					<div style="height: 40px;width:240px;font-size: 18px;">
+						<div class="mui-input-row mui-checkbox mui-left" style="width: calc(100%/2);float: left;">
+							<label>8:00</label>
+							<input name="checkbox" value="Item 1" type="checkbox">
+						</div>
+						<div class="mui-input-row mui-checkbox mui-left" style="margin-top:0px;width: calc(100%/2);float: right;display: inline;">
+							<label>8:30</label>
+							<input name="checkbox" value="Item 2" type="checkbox">
+						</div>
+					</div>
+
+					<div style="height: 40px;width:240px;font-size: 18px;">
+						<div class="mui-input-row mui-checkbox mui-left" style="width: calc(100%/2);float: left;">
+							<label>9:00</label>
+							<input name="checkbox" value="Item 3" type="checkbox">
+						</div>
+						<div class="mui-input-row mui-checkbox mui-left" style="margin-top:0px;width: calc(100%/2);float: right;display: inline;">
+							<label>9:30</label>
+							<input name="checkbox" value="Item 4" type="checkbox">
+						</div>
+					</div>
+
+					<div style="height: 40px;width:240px;font-size: 18px;">
+						<div class="mui-input-row mui-checkbox mui-left" style="width: calc(100%/2);float: left;">
+							<label>10:00</label>
+							<input name="checkbox" value="Item 5" type="checkbox">
+						</div>
+						<div class="mui-input-row mui-checkbox mui-left" style="margin-top:0px;width: calc(100%/2);float: right;display: inline;">
+							<label>10:30</label>
+							<input name="checkbox" value="Item 6" type="checkbox">
+						</div>
+					</div>
+
+				</div>
+				<div class="mui-popup-buttons"><span id="executeCancel" class="mui-popup-button">取消</span><span id="execute" class="mui-popup-button mui-popup-button-bold">执行</span></div>
+			</div>
+		</div>
+
+		<div id="changeBed" class="mui-popup mui-popup-in" style="display: block;width: 460px;height: 400px;visibility: hidden;">
+			<div class="mui-popup-inner" style="width: 100%;height: calc(100% - 44px);">
+				<div class="mui-popup-title" style="color: #5EBAFE;font-size: 24px;margin-top: 10px;">换床</div>
+				<span style="float: left;width: 50%;margin-top: 20px;color: #8d8d8d;font-size: 20px;">
+						<label>班次：</label>
+						<span>
+							<select id="classChange" onchange="selectChanged();">
+							<select>
+						</span>
+
+				</span>
+				<span style="float: right;width: 50%;margin-top: 20px;color: #8d8d8d;font-size: 20px;">
+						<label>工作区：</label>
+						<span>
+							<select id="areaChange" onchange="selectChanged();">						
+							<select>
+						</span>
+				</span>
+
+				<table style="top:120px;left:15px;position: absolute;width: 430px;height:200px;color: #333333;font-style: normal;" class="mui-scroll-wrapper">
+					<thead style="width: 100%;border-bottom: 1px solid #D9D9D9;background-color: #e0f8fc;">
+						<tr style="width: 100%;font-size: 19px;background-color: #e0f8fc;">
+							<td style="width: 20px;">&nbsp;</td>
+							<td style="width: calc((100% - 15px) / 5);">区域名称</td>
+							<td style="width: calc((100% - 15px) / 5);">床位名称</td>
+							<td style="width: calc((100% - 15px) / 5);">床位类型</td>
+							<td style="width: calc((100% - 15px) / 5);">透析模式</td>
+							<td style="width: calc((100% - 15px) / 5);">透析器</td>
+						</tr>
+					</thead>
+					<tbody style="font-size: 18px;height：151px;" class="mui-scroll" id="bedChoices">
+					</tbody>
+				</table>
+			</div>
+			<div class="mui-popup-buttons"><span id="saveCancel" class="mui-popup-button">取消</span><span id="saveExecute" class="mui-popup-button mui-popup-button-bold">保存</span></div>
+		</div>
+		<div id="menban" class="mui-popup-backdrop mui-active" style="display: block;visibility: hidden;"></div>
+
+		<script src="js/jquery-1.8b1.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/mui.pullToRefresh.js"></script>
+		<script src="js/mui.pullToRefresh.material.js"></script>
+		<script src="js/LoadXml.js"></script>
+		<script src="js/IndexInit.js"></script>
+		<script src="js/DialysisPatientList.js"></script>
+		<script src="js/ClassList.js"></script>
+		<script src="js/AreaList.js"></script>
+		<script src="js/NurseRoleSave.js"></script>
+		<script src="js/PatientClick.js"></script>
+		<script src="js/BaseInfo.js"></script>
+		<script src="js/DialysisInfo.js"></script>
+		<script src="js/DialysisItem.js"></script>
+		<script src="js/DialysisSummary.js"></script>
+		<script src="js/UnExecuteOrder.js"></script>
+		<script src="js/UpOrCancelUpMachine.js"></script>
+		<script src="js/DownOrCancelDownMachine.js"></script>
+		<script src="js/index.js"></script>
+		<script src="js/ChangeBed.js"></script>
+		<script src="js/VersionCheck.js"></script>
+	</body>
+
+</html>

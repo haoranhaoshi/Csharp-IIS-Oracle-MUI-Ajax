@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+
+		<style type="text/css">
+			header a,
+			header span {
+				color: #5EBAFE;
+			}
+			
+			#bcid {
+				top: 44px;
+				bottom: 44px;
+				width: 100%;
+				height: calc(100% - 44px - 44px);
+				position: absolute;
+				background: #000000;
+			}
+			
+			html,
+			body,
+			div {
+				height: 100%;
+				width: 100%;
+			}
+			
+			.fbt {
+				color: #5EBAFE;
+				width: 50%;
+				background-color: #ffffff;
+				float: left;
+				line-height: 44px;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background-color: #ffffff;height: 44px;">
+			<a class="mui-icon mui-icon-left-nav mui-pull-left" id="backIcon"></a>
+			<h1 class="mui-title" style="color: #5EBAFE;">二维码扫描</h1>
+			<span class="mui-icon mui-icon-spinner-cycle mui-spin mui-pull-right" id="turnTheLight"></span>
+		</header>
+
+		<div id="bcid">
+			<!--盛放扫描控件的div-->
+		</div>
+
+		<div class="mui-bar mui-bar-footer" style="height: 44px;background-color: #ffffff">
+			<div class="fbt" onclick="scanPicture();">从相册选择二维码</div>
+			<div class="fbt" id='backText'>取　 消</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/LoadXml.js"></script>
+		<script src="js/scan.js"></script>
+	</body>
+
+</html>

@@ -1,0 +1,714 @@
+			.mui-icon {
+				font-size: 14px;
+				color: #007aff;
+			}
+			
+			body {
+				background-color: #f6f7f9;
+				text-align: center;
+				color: #333333;
+			}
+			
+			#title1 {
+				height: 58px;
+				width: 100%;
+				position: absolute;
+				background-color: white;
+			}
+			
+			#title2 {
+				top: 58px;
+				height: 42px;
+				width: 100%;
+				position: absolute;
+				border-bottom-color: #D9D9D9;
+				border-bottom-style: solid;
+				border-bottom-width: 1px;
+				background-color: white;
+			}
+			
+			#list {
+				top: 100px;
+				height: calc(100% - 100px);
+				width: calc(100%/3);
+				position: absolute;
+				border-right-color: #D9D9D9;
+				border-right-style: solid;
+				border-right-width: 1px;
+				background-color: white;
+			}
+			
+			#information {
+				top: 112px;
+				left: calc(100%/3 + 12px);
+				right: 12px;
+				height: 100%;
+				position: absolute;
+				border-color: #D9D9D9;
+				border-style: solid;
+				border-width: 1px;
+				background-color: white;
+				padding-left: 20px;
+			}
+			
+			#left {
+				height: 100%;
+				width: calc(100%/3);
+				position: absolute;
+			}
+			
+			#middle {
+				left: calc(100%/3);
+				height: 100%;
+				width: calc(100%/3);
+				position: absolute;
+				padding-bottom: 0px;
+			}
+			
+			#right {
+				left: calc(100%/3 * 2);
+				height: 100%;
+				width: calc(100%/3);
+				position: absolute;
+				padding-right: 12px;
+				padding-top: 13px;
+			}
+			
+			#patient {
+				margin-top: 20px;
+				font-family: 'sans-serif';
+				font-size: 22px;
+				color: #5EBAFE;
+				text-align: center;
+			}
+			
+			
+			#tab1,
+			#tab2,
+			#tab3,
+			#tab4,
+			#tab5 {
+				text-decoration: none;
+				line-height: 40px;
+				font-size: 20px;
+			}
+			
+			#upButton {
+				width: 31%;
+				height: 36px;
+				font-size: 18px;
+				margin-right: 7%;
+				padding: 0px;
+				vertical-align: middle;
+			}
+			
+			#downButton {
+				width: 31%;
+				height: 36px;
+				font-size: 18px;
+				margin-left: 7%;
+				padding: 0px;
+				vertical-align: middle;
+			}
+			/*#dateControl {
+				border-color: #5EBAFE;
+				margin: 0 auto;
+				width: 194px;
+				height: 38px;
+				margin-top: 10px;
+				font-size: 18px;
+			}*/
+			
+			#date {
+				font-size: 22px;
+				color: #5EBAFE;
+			}
+			
+			#lastDay {
+				padding-left: 0px;
+				padding-right: 0px;
+				font-size: 32px;
+				color: #5EBAFE;
+				margin-left: 0px;
+			}
+			
+			#nextDay {
+				padding-left: 0px;
+				padding-right: 0px;
+				font-size: 32px;
+				color: #5EBAFE;
+				margin-left: 0px;
+			}
+			
+			#dateSelect {
+				font-size: 32px;
+				color: #5EBAFE;
+				position: absolute;
+				top: 12px;
+			}
+			
+			#moveIcon {
+				color: #5EBAFE;
+				margin-top: 18px;
+				padding-left: 16px;
+				font-size: 26px;
+				margin-left: 0px;
+			}
+			
+			#ring {
+				width: 146px;
+				height: 146px;
+				-moz-border-radius: 73px;
+				-webkit-border-radius: 73px;
+				border-radius: 73px;
+				border: 4px solid white;
+				margin-top: 98px;
+				margin-left: 121px;
+				background-image: url(../imgs/nurse.png);
+			}
+			
+			#batchExecute {
+				position: absolute;
+				top: 0px;
+				right: 30px;
+			}
+			
+			.mui-popover {
+				height: 300px;
+			}
+			
+			.dialysisItem input::-webkit-input-placeholder {
+				/* WebKit browsers */
+				color: #333333;
+			}
+			
+			.dialysisItem input:-moz-placeholder {
+				/* Mozilla Firefox 4 to 18 */
+				color: #333333;
+			}
+			
+			.dialysisItem input::-moz-placeholder {
+				/* Mozilla Firefox 19+ */
+				color: #333333;
+			}
+			
+			.dialysisItem input:-ms-input-placeholder {
+				/* Internet Explorer 10+ */
+				color: #333333;
+			}
+			
+			.dialysisItem input.change::-webkit-input-placeholder {
+				/* WebKit browsers */
+				color: red;
+			}
+			
+			.dialysisItem input.change:-moz-placeholder {
+				/* Mozilla Firefox 4 to 18 */
+				color: red;
+			}
+			
+			.dialysisItem input.change::-moz-placeholder {
+				/* Mozilla Firefox 19+ */
+				color: red;
+			}
+			
+			.dialysisItem input.change:-ms-input-placeholder {
+				/* Internet Explorer 10+ */
+				color: red;
+			}
+			
+			#left div input::-webkit-input-placeholder {
+				/* WebKit browsers */
+				color: #a8a8a8;
+			}
+			
+			#left div input:-moz-placeholder {
+				/* Mozilla Firefox 4 to 18 */
+				color: #a8a8a8;
+			}
+			
+			#left div input::-moz-placeholder {
+				/* Mozilla Firefox 19+ */
+				color: #a8a8a8;
+			}
+			
+			#left div input:-ms-input-placeholder {
+				/* Internet Explorer 10+ */
+				color: #a8a8a8;
+			}
+			
+			input[type=text] ,input[type=number] {
+				width: calc(20%);
+				margin-bottom: 0px;
+				border: none;
+				padding: 0px;
+				font-size: 22px;
+			}		
+			
+			.executeButton {
+				position: absolute;
+				top: 326px;
+				height: 38px;
+				width: 94px;
+				font-size: 18px;
+				right: 30px;
+			}
+			
+			#state,
+			#class,
+			#area {
+				display: block;
+				color: #5EBAFE;
+			}
+			
+			#basicInformation,
+			#dialysisBeforeInfo,
+			#dialysisAfterInfo {
+				position: absolute;
+				left: calc(14px + 18px);
+				width: 100%;
+			}
+			
+			#basicInformation p:nth-child(1),
+			#dialysisBeforeInfo p:nth-child(1),
+			#dialysisAfterInfo p:nth-child(1) {
+				margin-bottom: 0px;
+				font-size: 20px;
+				color: #a8a8a8;
+				text-align: left;
+				height: 22px;
+			}
+			
+			#basicInformation div:nth-child(2),
+			#dialysisBeforeInfo div:nth-child(2),
+			#dialysisAfterInfo div:nth-child(2) {
+				margin-top: 15px;
+				margin-bottom: 15px;
+				width: calc(100%/2);
+				float: left;
+				font-size: 22px;
+				line-height: 40px;
+				text-align: left;
+			}
+			
+			#basicInformation div:nth-child(3),
+			#dialysisBeforeInfo div:nth-child(3),
+			#dialysisAfterInfo div:nth-child(3) {
+				margin-top: 15px;
+				margin-bottom: 15px;
+				width: calc(100%/2);
+				float: right;
+				font-size: 22px;
+				line-height: 40px;
+				text-align: left;
+			}
+			
+			.dialysisItem,
+			.afterItem {
+				text-align: left;
+				line-height: 40px;
+				font-size: 22px;
+				margin-top: 10px;
+				margin-left: 58px;
+			}
+			
+			.record {
+				width: 100%;
+				height: calc(28px + 40px * 8 + 10px + 38px + 15px + 20px);
+				margin-top: 20px;
+			}
+			
+			.rectangle {
+				height: 22px;
+				width: 14px;
+				position: absolute;
+				left: 0px;
+				background-color: #5EBAFE;
+			}
+			
+			.time {
+				left: 14px;
+				width: 200px;
+				position: absolute;				
+			}
+			
+			.record .time {
+				margin-top: -7px;
+			}
+			
+			.time input,.record .time input {
+				border: none;
+				font-size: 20px;
+				padding-left: 0px;				
+			}
+			
+			.executeOrder .time p {
+				font-size: 20px;
+			}
+			
+			.executeOrder .time {
+				left: -40px;
+			}
+			
+			.leftRectangle {
+				width: 36px;
+				border-top: #DDDDDD 1px solid;
+				border-left: #DDDDDD 1px solid;
+				border-bottom: #DDDDDD 1px solid;
+				float: left;
+			}
+			
+			.rightRectangle {
+				float: left;
+				color: #5EBAFE;
+				font-size: 20px;
+				width: calc(100% - 44px);
+			}
+			
+			.processItem {
+				position: absolute;
+				line-height: 40px;
+				height: calc(40px * 8 + 10px + 38px + 15px);
+				padding-top: 0px;
+				margin-top: 28px;
+				/*left: 96px;*/
+				left: calc(48px);
+				right: 0px;
+				border-left-color: #5EBAFE;
+				border-left-style: solid;
+				border-left-width: 4px;
+			}
+			
+			.deleteButton {
+				margin-bottom: 15px;
+				margin-right: 30px;
+				float: right;
+				height: 38px;
+				width: 94px;
+				font-size: 18px;
+			}
+			
+			.circle {
+				width: 20px;
+				height: 20px;
+				background-color: #5EBAFE;
+				-moz-border-radius: 10px;
+				-webkit-border-radius: 10px;
+				border-radius: 10px;
+				position: absolute;
+				margin-top: calc(40px * 8 + 10px + 38px + 15px + 28px - 10px);
+				/*left: 88px;*/
+				left: calc(48px - 8px);
+			}
+			
+			.line {
+				position: absolute;
+				margin-top: calc(40px * 8 + 10px + 38px + 15px + 28px);
+				/*left: 154px;*/
+				left: calc(154px - 48px);
+				width: 718px;
+				height: 1px;
+				padding: 0px;
+				background-color: #d9d9d9;
+				overflow: hidden;
+			}
+			
+			.afterRecord {
+				margin-top: 20px;
+				margin-left: 48px;
+				width: calc(100% - 48px);
+				border-left-color: #5EBAFE;
+				border-left-style: solid;
+				border-left-width: 4px;
+				height: calc(40 * (9 + 3));
+			}	
+			
+			.afterCircle {
+				width: 20px;
+				height: 20px;
+				background-color: #5EBAFE;
+				-moz-border-radius: 10px;
+				-webkit-border-radius: 10px;
+				border-radius: 10px;
+				margin-left: calc(48px - 8px);
+				display: inline;
+				float: left;
+			}	
+			
+			.afterLine {
+				display: inline;
+				float: right;
+				width: calc(100% - (154px - 48px));
+				margin-top: 8px;
+				height: 1px;
+				padding: 0px;
+				background-color: #d9d9d9;
+				overflow: hidden;
+			}	
+			
+			#addButton,
+			#afterSaveButton {
+				margin-right: 20px;
+				margin-top: 20px;
+				height: 38px;
+				width: 94px;
+				font-size: 18px;
+			}
+			
+			#confirmButton {
+				margin-left: 20px;
+				margin-top: 20px;
+				height: 38px;
+				width: 94px;
+				font-size: 18px;
+			}
+			
+			.executeOrder {
+				width: 100%;
+				height: 418px;
+				margin-top: 20px;
+			}
+			
+			.orderContent {
+				position: absolute;
+				height: 370px;
+				padding-top: 0px;
+				margin-top: 28px;
+				/*left: 96px;*/
+				left: 36px;
+				right: 0px;
+				border-left-color: #5EBAFE;
+				border-left-style: solid;
+				border-left-width: 4px;
+			}
+			
+			.orderText {
+				float: left;
+				text-align: left;
+				line-height: 40px;
+				font-size: 22px;
+				margin-top: 10px;
+				margin-left: 36px;
+				width: 100%;
+			}
+			
+			.circleOrder {
+				width: 20px;
+				height: 20px;
+				background-color: #5EBAFE;
+				-moz-border-radius: 10px;
+				-webkit-border-radius: 10px;
+				border-radius: 10px;
+				position: absolute;
+				margin-top: 398px;
+				/*left: 88px;*/
+				left: calc(48px - 8px - 12px);
+			}
+			
+			.lineOrder {
+				position: absolute;
+				margin-top: 408px;
+				/*left: 154px;*/
+				left: calc(154px - 48px);
+				width: 718px;
+				height: 1px;
+				padding: 0px;
+				background-color: #DDDDDD;
+				overflow: hidden;
+			}			
+			
+			#batchExecute a {
+				display: block;
+				width: 100%;
+				height: 100%;
+			}
+			
+			#batchExecute a span:nth-child(1) {
+				font-size: 30px;
+				padding-right: 0px;
+				margin-left: 0px;
+			}
+			
+			#batchExecute a span:nth-child(2) {
+				font-size: 18px;
+				color: #a8a8a8;
+			}
+			
+			.searchPart {
+				float: right;
+				margin: 0px 8px 8px 8px;
+				background-color: #f6f6f6;
+				width: calc(100% - 16px);
+				height: calc(100% - 8px);
+				border-radius: 5px;
+				border: 1px #D9D9D9 solid;
+				padding-left: 12px;
+				padding-right: 12px;
+			}
+			
+			#returnIcon {
+				position: fixed;
+				left: 11px;
+				top: calc((42px - 8px - 34px) / 2 + 58px);
+				float: left;
+				font-size: 34px;
+				color: #5EBAFE;
+				margin-left: 0px;
+				visibility: hidden;
+			}
+			
+			#scanIcon {
+				font-size: 20px;
+				color: #a8a8a8;
+				margin-top: 5px;
+				position: absolute;
+				right: calc(8px + 12px);
+			}
+			
+			#searchIcon {
+				padding-right: 0px;
+				font-size: 20px;
+				color: #a8a8a8;
+				margin-top: 5px;
+				position: absolute;
+				margin-left: 0px;
+				left: calc(8px + 12px);
+			}
+			
+			#search {
+				position: absolute;
+				margin-left: 0px;
+				border: none;
+				left: 12px;
+				width: calc(100% - 12px);
+				height: 100%;
+				background-color: #f6f6f6;
+				font-size: 18px;
+			}
+			
+			#searchDiv {
+				position: absolute;
+				border: none;
+				left: calc(8px + 12px + 20px);
+				width: calc(100% - 12px * 2 - 8px * 2 - 20px);
+				height: calc(100% - 8px - 2px);
+				background-color: #f6f6f6;
+				font-size: 18px;
+			}
+			
+			#stateSelect {
+				width: calc(100%/3/3);
+				height: calc(43px * 3 + 7px + 7px);
+			}
+			
+			#classSelect {
+				width: calc(100%/3/3);
+				height: calc(43px + 7px + 7px);
+			}
+			
+			#areaSelect {
+				width: calc(100%/3/3);
+			}
+			
+			#patientList li {
+				width: 100%;
+				height: 60px;
+				padding-top: 0px;
+				font-size: 22px;
+			}
+			
+			#patientList li div div:nth-child(1) {
+				position: absolute;
+				left: 0px;
+				padding-left: 12px;
+				height: 60px;
+				line-height: 60px;
+			}
+			
+			#patientList li div div:nth-child(2) {
+				position: absolute;
+				left: 148px;
+				height: 60px;
+				line-height: 60px;
+			}
+			
+			#patientList li input {
+				font-size: 18px;
+				width: 78px;
+				height: 33px;
+				padding: 0px;
+				vertical-align: middle;
+				position: absolute;
+				left: calc(100%/3 * 2 + 12px);
+				top: calc((60px - 33px) / 2);
+			}
+			
+			#patientList li>div {
+				width: 100%;
+				height: 100%;
+			}
+			
+			#patientList li .listCircle {
+				/*width: 14px;
+				height: 14px;
+				-moz-border-radius: 7px;
+				-webkit-border-radius: 7px;
+				border-radius: 7px;		
+				border-color: #D9D9D9;
+				border-style: solid;
+				border-width: 1px;
+				position: absolute;
+				top: calc((60px - 14px) / 2);
+				left: 386px;
+				vertical-align: middle;*/
+				width: 5px;
+				height: 33px;				
+				border-color: #D9D9D9;
+				border-style: solid;
+				border-width: 1px;
+				position: absolute;
+				top: calc((60px - 33px) / 2);
+				right: 0px;
+			}
+			
+			#changeBed table tr {
+				height: 40px;
+			}
+			
+			#changeBed select {
+				width: auto;
+				height: 30px;
+				margin: 0px;
+				background-color: transparent;
+				font-size: 18px;
+				padding: 0 10px;
+			}
+			
+			#changeBed span span {
+				display: inline-block;
+				border: 1px solid #5EBAFE;
+				font-size: 20px;
+			}
+			
+			#changeBed tr {
+				border-bottom: 1px solid #D9D9D9;
+			}
+			
+			#changeBed table tbody {
+				display: block;
+				height: 151px;
+				overflow-y: scroll;
+			}
+			
+			#changeBed table thead,
+			#changeBed tbody tr {
+				display: table;
+				width: 100%;
+				table-layout: fixed;
+			}
+			
+			#changeBed table thead {
+				width: calc( 100% - 1em)
+			}
+			
+			* { touch-action: none; } 

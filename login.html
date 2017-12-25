@@ -1,0 +1,131 @@
+﻿<!doctype html>
+<html id="login">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/icons-extra.css" />
+		<style>
+			body {
+				text-align: center;
+				background-color: white;
+			}
+			
+			input::-webkit-input-placeholder {
+				/* WebKit browsers */
+				font-weight: lighter;
+				font-size: 20px;
+				font-family: "微软雅黑";
+				color: #d9d9d9;
+			}
+			
+			input:-moz-placeholder {
+				/* Mozilla Firefox 4 to 18 */
+				font-weight: lighter;
+				font-size: 20px;
+				font-family: "微软雅黑";
+				color: #d9d9d9;
+			}
+			
+			input::-moz-placeholder {
+				/* Mozilla Firefox 19+ */
+				font-weight: lighter;
+				font-size: 20px;
+				font-family: "微软雅黑";
+				color: #d9d9d9;
+			}
+			
+			input:-ms-input-placeholder {
+				/* Internet Explorer 10+ */
+				font-weight: lighter;
+				font-size: 20px;
+				font-family: "微软雅黑";
+				color: #d9d9d9;
+			}
+			
+			#loginName {
+				width: calc(478px - (25px + 64px + 35px));
+				font-weight: 100;
+				font-size: 20px;
+				height: 100%;
+				padding-top: 26px;
+			}
+			
+			#password {
+				width: calc(478px - (25px + 64px + 35px));
+				font-size: 20px;
+				height: 100%;
+				padding-top: 26px;
+			}
+			
+			#alertLogin {
+				float: right;
+				margin-top: 12px;
+				color: #f53530;
+				font-size: 18px;
+				visibility: hidden;
+			}
+			
+			#settingDiv input {
+				border: none;
+				border-radius: 0px;
+				border-bottom: 1px solid #8d8d8d;
+				width: 50px;
+				margin-left: 10px;
+				padding: 0px 5px;
+				height: 30px;
+				margin-left: 10px;
+				background-color: transparent;
+			}			
+		</style>
+	</head>
+
+	<body>
+		<div style="margin: 0 auto;margin-top: 150px;height: 156px;width: 156px;background-image: url(imgs/icon.png);"></div>
+		<div style="margin: 0 auto;width: 478px;height: 212px;margin-top: 122px;">
+			<div class="mui-input-row" style="height: 58px;border-bottom: 1px #D9D9D9 solid;">
+				<label style="height: 100%;width:calc(25px + 64px + 35px);padding-top: 18px;padding-left: 25px;padding-right: 64px;"><span style="font-size: 35px;color: #a8a8a8;" class="mui-icon-extra mui-icon-extra-people"></span></label>
+				<input type="text" placeholder="请输入账号/姓名" id="loginName">
+			</div>
+			<div class="mui-input-row" style="height: 58px;border-bottom: 1px #D9D9D9 solid;">
+				<label style="height: 58px;width:calc(25px + 64px + 35px);padding-top: 18px;padding-left: 25px;padding-right: 64px;"><span style="font-size: 35px;color: #a8a8a8;" class="mui-icon mui-icon-locked"></span></label>
+				<input type="password" placeholder="请输入您的密码" id="password" class="mui-input-password">
+			</div>
+			<font id="alertLogin">用户名、密码错误</font>
+			<a id="myLogin" class="mui-btn mui-btn-primary" style="margin-top: 12px;width: 478px;height: 60px;font-size: 22px;line-height: 46px;">登录</a>
+			<a id="myScan" style="font-size: 22px;color: #5EBAFE;margin-top: 34px;line-height: calc(25px + 34px);">扫码登录</a>
+		</div>
+
+		<span id="settingIcon" style="position:absolute;top: 24px;right: 24px;font-size: 28px;color: #a8a8a8;" class="mui-icon-extra mui-icon-extra-computer"></span>
+
+		<div id="settingDiv" class="mui-popup mui-popup-in" style="display: block;width: 400px;height: 260px;visibility: hidden;">
+			<div class="mui-popup-inner" style="width: 100%;height: calc(100% - 44px);">
+				<div class="mui-popup-title" style="color: #5EBAFE;font-size: 24px;margin-top: 10px;">服务器设置</div>				
+				<div id="ipDiv" style="width: 100%;color: #8d8d8d;font-size: 20px;margin-top: 30px;">
+					<label style="width:50px">&nbsp;&nbsp;&nbsp;&nbsp;IP：</label>
+					<input type="number" />
+					<label>.</label>
+					<input type="number" />
+					<label>.</label>
+					<input type="number" />
+					<label>.</label>
+					<input type="number" />
+				</div>
+				<div style="width: 100%;color: #8d8d8d;font-size: 20px;margin-top: 10px;margin-bottom:8px;">
+					<label style="width:50px">端口：</label>
+					<input id="portInput" type="number" style="width: 276px;"/>
+				</div>
+				<font id="alertSetting" color="#f53530"></font>
+			</div>
+			<div class="mui-popup-buttons"><span id="saveCancel" class="mui-popup-button">取消</span><span id="saveExecute" class="mui-popup-button mui-popup-button-bold">保存</span></div>
+		</div>
+		<div id="menban" class="mui-popup-backdrop mui-active" style="display: block;visibility: hidden;"></div>
+
+		<script src="js/mui.min.js"></script>
+		<script src="js/LoadXml.js"></script>
+		<script src="js/Login.js"></script>
+	</body>
+
+</html>
